@@ -1,0 +1,84 @@
+
+
+body{
+    margin: 0;
+}
+.container {
+    background: url("../img/background-green-dot.png") repeat;
+    display:grid;
+    width: 100vw; 
+    height: 100vh;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: minmax(0, 100px) auto minmax(0, 60px);
+    grid-template-areas: "head head head"
+                         "aside-left work aside-right"
+                         "foot foot foot";
+}
+
+.header{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-area: head;
+    background-color: rgb(14, 105, 33);
+}
+
+.work {
+    align-self: center;
+    justify-self: center;
+    grid-area: work;
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.new-btn{
+    grid-row: 2;
+    align-self: center;
+    justify-self: center;
+    width: 60px;
+}
+
+.item-list{
+    padding: 0;
+    grid-row: 1;
+}
+
+.item{
+   display: grid;
+   grid-template-columns: repeat(3, auto);
+}
+
+button:hover, input:hover{
+    background: yellowgreen;
+}
+
+button, input{
+    background: rgb(14, 105, 33);
+    border-radius:10px 10px;
+    box-shadow: 5px 5px;
+    
+    margin: 10px;
+    border:1px;   
+    height: 26px
+}
+
+.aside{
+
+}
+
+.aside-left{
+    grid-area: aside-left;
+}
+
+.aside-right{
+    grid-area: aside-right;
+}
+
+.footer {
+    display: grid;
+    font-size: 20px;
+    grid-area: foot;
+    background-color: rgb(14, 105, 33);
+    align-items: center;
+    justify-items: center;
+}

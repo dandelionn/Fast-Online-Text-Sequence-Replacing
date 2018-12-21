@@ -1,9 +1,10 @@
 {
-  "name": "datatransfer",
+  "name": "app_backbone",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "compile": "node-gyp rebuild --python=python2.7",
     "start": "run-script-os",
     "start:win32": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser \"C:\\Users\\U2361\\AppData\\Local\\Firefox Developer Edition\\firefox.exe\"",
     "//": "Hello! If you are having trouble running this command. Try changing Firefox Developer Edition to FirefoxDeveloperEdition",
@@ -17,6 +18,8 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "express-fileupload": "^1.0.0"
+    "express-fileupload": "^1.0.0",
+    "nan": "^2.12.0",
+    "node-gyp": "^3.8.0"
   }
 }

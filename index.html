@@ -5,23 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1> Uploading and downloading files</h1>
-    
-    <form method="post" enctype="multipart/form-data" action="/">
-        <input type="file" name="filename">
-        <input type="submit" value="upload">
-    </form>
+    <div class="container">
+        <div class="header">
+             <h1> Online fast file translator based on the provided dictionary </h1>
+        </div>
 
-    <button id="btn_download" onclick="download()">Download File</button>
-    
-    <script>
-        function download(){
-            console.log("here1");
-            window.open('./download');
-            console.log("here2");
-        }
-    </script>
+        <div class="aside aside-left">
+        </div>
+
+        <div class="work">
+            <ul class="item-list">
+                <div class="item item0">
+                    <form method="post" enctype="multipart/form-data" action="/">
+                        <input type="file" name="filename">
+                        <input type="submit" value="upload">
+                    </form>
+
+                    <button id="btn_process" onclick="processFile()">Process File</button>
+                    <button id="btn_download" onclick="download()">Download File</button>
+                </div>
+            </ul>
+            <button class="new-btn" onclick="AddNewItem()">New</button>
+        </div>
+
+        <div class="aside aside-right">
+        </div>
+      
+        <div class="footer">
+            <p>This is the footer!</p>
+        </div>
+        
+        <script>
+            function download(){
+                console.log("here1");
+                window.open('./download');
+                console.log("here2");
+            }
+
+            
+            function AddNewItem(){
+                let list = document.querySelector(".item-list");
+            }
+        </script>
+    </div>
 </body>
 </html>
