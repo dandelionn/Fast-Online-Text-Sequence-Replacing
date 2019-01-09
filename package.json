@@ -17,6 +17,7 @@
     "run-script-os": "^1.0.5"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.4",
     "express-fileupload": "^1.0.0",
     "nan": "^2.12.0",
