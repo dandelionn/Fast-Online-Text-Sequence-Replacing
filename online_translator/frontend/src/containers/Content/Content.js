@@ -15,7 +15,9 @@ class Content extends Component{
 
                 <JobList />
 
-                <p className ={classes.description}>Choose a file and a dictionary. Hit the process button and the files will be uploaded and processed. After that a download button will appear.</p>
+                <p className ={classes.description}>Choose a file and a dictionary. 
+                    Hit the process button and the files will be uploaded and processed. 
+                    After that a download button will appear. You have to provide non-empty files.</p>
             </div>
         );
     }

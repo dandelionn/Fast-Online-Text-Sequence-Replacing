@@ -9,5 +9,18 @@
 }
 
 .JobList ul{
+    margin: 0;
+    padding: 0;
+}
+
+.Add{
+    border-radius: 8px;
+    background-color: rgba(162, 163, 82, 40%);
+    font-size: 20px;
+    border-color: black;
+
+}
+
+.JobList ul{
     
 }

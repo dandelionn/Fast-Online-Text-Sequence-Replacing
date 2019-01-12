@@ -17,7 +17,7 @@ class JobList extends Component{
             <div className={classes.JobList}>
             <ul >
                 <Job />
-                <button>Add Job</button>
+                <button className={classes.Add}>add job</button>
             </ul>
             </div>
         );

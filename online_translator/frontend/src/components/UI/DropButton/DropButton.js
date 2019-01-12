@@ -31,7 +31,7 @@ class DropButton extends Component{
              {selected}
             <input type="file" accept="textfile/*"
                 ref={ input => this.inputElement = input} 
-                onChange={() => this.props.inputChange(this.inputElement.value, this.props.selectionType)}/>
+                onChange={(ev) => this.props.inputChange(ev, this.props.selectionType)}/>
             </div>
         );
     }

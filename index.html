@@ -19,12 +19,12 @@
         <div class="work">
             <ul class="item-list">
                 <div class="item item0">
-                    <form method="post" enctype="multipart/form-data" action="/">
-                        <input type="file" name="filename">
+                    <form method="post" enctype="multipart/form-data" action="/upload">
+                        <input type="file" name="filename" id="uploadId">
                         <input type="submit" value="upload">
                     </form>
 
-                    <button id="btn_process" onclick="processFile()">Process File</button>
+                    <button id="btn_process" onclick="process()">Process File</button>
                     <button id="btn_download" onclick="download()">Download File</button>
                 </div>
             </ul>

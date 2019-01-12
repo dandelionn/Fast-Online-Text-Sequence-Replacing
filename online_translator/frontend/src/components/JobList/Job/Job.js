@@ -2,14 +2,16 @@ import React, {Component} from 'react';
 import classes from './Job.module.css';
 import DropButton from '../../UI/DropButton/DropButton';
 import Spinner from '../../UI/Spinner/Spinner';
+import axios from 'axios';
+import fileDownload from 'js-file-download';
 
 class Job extends Component{
-    //const spinner = <Spinner />;
     state = {
-          text: null, 
-          dictionary: null,  
-          processing: false,
-          jobFinished: false
+          dictionaryFile: null,  
+          textFile: null,
+          isProcessing: false,
+          jobFinished: false,
+          isTimeToProcess: false
     }
 
     dropHandler = (ev, selectionType) => {
@@ -18,36 +20,23 @@ class Job extends Component{
         // Prevent default behavior (Prevent file from being opened)
         ev.preventDefault();
     
-        /*if (ev.dataTransfer.items) {
-        // Use DataTransferItemList interface to access the file(s)
-            for (let i = 0; i < ev.dataTransfer.items.length; i++) {
-                // If dropped items aren't files, reject them
-                if (ev.dataTransfer.items[i].kind === 'file') {
-                    const file = ev.dataTransfer.items[i].getAsFile();
-                    console.log('... file[' + i + '].name = ' + file.name);
-                }
-            }*/
-        if (ev.dataTransfer.items) {
-            if (ev.dataTransfer.items[0].kind === 'file') {
-                const file = ev.dataTransfer.items[0].getAsFile();
-                console.log(file);
-                this.inputChangedHandler(file.name, selectionType);
-            }
+        let file = null;
+        if (ev.dataTransfer.items && (ev.dataTransfer.items[0].kind === 'file'))  {
+                file = ev.dataTransfer.items[0].getAsFile();
+        } else {
+            file = ev.dataTransfer.files[0];
         }
-        else {
-            /*// Use DataTransfer interface to access the file(s)
-            for (let i = 0; i < ev.dataTransfer.files.length; i++) {
-                console.log('... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
-            }*/
-            console.log(ev.dataTransfer.files[0].name);
-            const file = ev.dataTransfer.files[0];
-            this.inputChangedHandler(file.name, selectionType);
+        if( file.size === 0 )
+            return;
+        if(selectionType === 'dictionary') { 
+            this.setState({dictionaryFile: file});
+        } else { 
+            this.setState({textFile: file});
         }
     }
   
     dragOverHandler = (ev) => {
         console.log('File(s) in drop zone'); 
-        //console.log(ev.target.tagName);
         // Prevent default behavior (Prevent file from being opened)
         ev.preventDefault();
     }
@@ -56,56 +45,116 @@ class Job extends Component{
         console.log("Drag leave!");
     }
 
-    getFilename = (fullPath) => {
-        if(fullPath === null)
-            return null;
-        
-        return fullPath.replace(/^.*[\\/]/, '');
+    downloadFileHandler = () => {
+        axios.get(`http://localhost/download/${this.state.textFile.name}`)
+                .then( (response) => {
+                    fileDownload(response.data, `processed_${this.state.textFile.name}`);
+                    console.log(response);
+                })
+                .catch(errors => {
+                    console.log(errors);
+                })
+                .then( () => {
+                    this.setState({jobFinished: false});
+                });
+ 
     }
 
-    inputChangedHandler = (fullPath, selectionType) => {
-        console.log(fullPath);
-        if(selectionType === 'dictionary') { 
-            this.setState({dictionary: this.getFilename(fullPath)});
-        } else { 
-            this.setState({text: this.getFilename(fullPath)});
+    processFileHandler = () => {
+        axios.get(`http://localhost/process/${this.state.dictionaryFile.name}/${this.state.textFile.name}`)
+                    .then( response => {
+                        console.log(response);
+                        this.setState({jobFinished: true});
+                    })
+                    .catch(errors => {
+                        console.log(errors);
+                    })
+                    .then( () => {
+                        this.setState({isProcessing: false});
+                     });
+    }
+
+    uploadDataHandler = (file) => {
+        let data = new FormData();
+        data.append('filename', file);
+
+        const config = {
+            headers: { 'content-type': 'multipart/form-data' }
         }
+
+        axios.post('http://localhost/upload', data, config)
+                .then( response => {
+                        console.log(response);
+                        if(this.state.isTimeToProcess === true) {
+                            this.setState({isTimeToProcess: false});
+                            this.processFileHandler();
+                        } else {
+                            this.setState({isTimeToProcess: true});
+                        }
+                    })
+                .catch(errors => {
+                        console.log(errors);
+                });
     }
 
     processInputHandler = () => {
         this.setState({processing: true});
+        this.uploadDataHandler(this.state.dictionaryFile);
+        this.uploadDataHandler(this.state.textFile);            
     } 
+
+    inputChangedHandler = (ev, selectionType) => {
+        let files = ev.target.files || ev.dataTransfer.files;
+        if (!files.length) {
+            console.log('no files');
+        }
+        console.log(files);
+        console.log(files[0])
+
+        if(files[0].size === 0)
+            return;
+
+        if(selectionType === 'dictionary') { 
+            this.setState({dictionaryFile: files[0]});
+        } else { 
+            this.setState({textFile: files[0]});
+        }
+    }
 
     render(){
         let content = <>
                         <div><DropButton
-                            dictionary={this.state.dictionary}
+                            dictionary={this.state.dictionaryFile ? this.state.dictionaryFile.name : null}
                             dragOver={this.dragOverHandler}
                             drop={this.dropHandler}
                             dragLeave={this.dragLeaveHandler}
-                            inputChange={this.inputChangedHandler}
-                            selectionType='dictionary' />
+                            selectionType='dictionary'
+                            inputChange={this.inputChangedHandler}/>
                         </div>
+
                         <div><DropButton 
-                            text={this.state.text}
+                            text={this.state.textFile ? this.state.textFile.name : null}
                             dragOver={this.dragOverHandler}
                             drop={this.dropHandler}
                             dragLeave={this.dragLeaveHandler}
-                            inputChange={this.inputChangedHandler}
-                            selectionType='text' />
+                            selectionType='text'
+                            inputChange={this.inputChangedHandler}/>
                         </div>
+
                         <div><button onClick={this.processInputHandler} >Process File</button></div>
                       </>;
-        if(this.state.processing === true){
+
+        if(this.state.isProcessing === true){
             content = <><Spinner />
                         <p>Processing...</p>  
                       </>
 
         }
+
         if(this.state.jobFinished === true){
             content = <>
-                        <button>Download </button>
-                        <p>&nbsp; processed_{this.state.text}</p>
+                        <p className={classes.ProcessedText}>&nbsp; processed_{this.state.textFile.name}</p>
+                        <button onClick={this.downloadFileHandler}>Download </button>
                       </>
         }
 
