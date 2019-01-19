@@ -1,18 +1,19 @@
 var cors = require('cors');
+const path = require('path');
 
 var express = require("express"),
     app = express(),
     http = require("http").Server(app).listen(3000);
     upload = require("express-fileupload");
     app.use(upload());
-app.use(express.static('../frontend/build'));
+app.use(express.static(path.join(__dirname, '..', '/frontend/build')));
 
 console.log("Server Started!");
 
 app.get("/", function(req, res){
-    console.log("../frontend/build/index.html");
+    console.log(path.join(__dirname, '..', '/frontend/build/index.html'));
 
-    res.sendFile("../frontend/build/index.html");
+    res.sendFile(path.join(__dirname, '..', '/frontend/build/index.html'));
 });
 
 app.post("/upload", function(req, res) {
@@ -40,7 +41,6 @@ app.post("/upload", function(req, res) {
 });
 
 
-const path = require('path');
 //define a route to donwload a file
 app.get('/download/:file(*)', (req, res) => {
     var file = req.params.file;
