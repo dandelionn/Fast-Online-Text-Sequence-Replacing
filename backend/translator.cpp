@@ -5,7 +5,7 @@ std::string ProccessInput(std::string dictionaryPath, std::string inputPath, std
 {
     std::string result = "";
     auto i = 0UL;
-    execute();
+    //execute();
     /*for(; i<10000; ++i) 
     {
         result += dictionaryPath;
