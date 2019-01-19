@@ -1,0 +1,19 @@
+{
+   "name": "theusefulweb.tk",
+   "version": "1.0.0",
+   "description": "",
+   "main": "",
+   "scripts": {
+      "prepare-frontend": "cd frontend && npm install &&  npm run build",
+      "prepare-backend": "cd backend && npm install",
+      "prepare": "npm run prepare-frontend && npm run prepare-backend",
+      "restart": "pm2 startOrRestart ecosystem.config.js",
+      "deploy": "pm2 deploy ecosystem.config.js production",
+      "setup-remote-directories": "pm2 deploy ecosystem.config.js production setup"
+   },
+   "author": "Paul Michea",
+   "license": "ISC",
+   "devDependencies": {
+      "pm2": "^3.2.9"
+   }
+}
