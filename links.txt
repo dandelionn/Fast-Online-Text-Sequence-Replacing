@@ -1,6 +1,0 @@
-
-https://medium.com/@marcinbaraniecki/extending-node-js-with-native-c-modules-63294a91ce4
-https://nodejs.org/api/addons.html#addons_native_abstractions_for_node_js
-
-https://nodeaddons.com/building-an-asynchronous-c-addon-for-node-js-using-nan/
-https://medium.com/@tarkus/how-to-call-c-c-code-from-node-js-86a773033892
