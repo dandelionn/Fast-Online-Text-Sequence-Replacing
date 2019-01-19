@@ -5,6 +5,9 @@ import Spinner from '../../UI/Spinner/Spinner';
 import axios from 'axios';
 import fileDownload from 'js-file-download';
 
+const baseURL = "http://ec2-18-195-241-53.eu-central-1.compute.amazonaws.com/";
+//const baseURL = "http://localhost:3000/";
+
 class Job extends Component{
     state = {
           dictionaryFile: null,  
@@ -59,7 +62,7 @@ class Job extends Component{
     }
 
     downloadFileHandler = () => {
-        axios.get(`http://localhost:3000/download/${this.state.textFile.name}`)
+        axios.get(`${baseURL}download/${this.state.textFile.name}`)
                 .then( (response) => {
                     fileDownload(response.data, `processed_${this.state.textFile.name}`);
                     console.log(response);
@@ -70,12 +73,11 @@ class Job extends Component{
                 .then( () => {
                     this.setState({jobFinished: false});
                 });
- 
     }
 
     processFileHandler = () => {
         console.log("IN PROCESS FILE");
-        axios.get(`http://localhost:3000/process/${this.state.dictionaryFile.name}/${this.state.textFile.name}`)
+        axios.get(`${baseURL}process/${this.state.dictionaryFile.name}/${this.state.textFile.name}`)
                     .then( response => {
                         console.log(response);
                         this.setState({jobFinished: true});
@@ -96,7 +98,7 @@ class Job extends Component{
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        axios.post('http://localhost:3000/upload', data, config)
+        axios.post(`${baseURL}upload`, data, config)
                 .then( response => {
                         console.log(response);
                         if(this.state.isTimeToProcess === true) {
