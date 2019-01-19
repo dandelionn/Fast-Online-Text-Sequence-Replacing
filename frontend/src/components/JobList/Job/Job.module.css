@@ -1,0 +1,53 @@
+.Job{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 15px;
+    align-items: center;
+    justify-items: center;
+    margin: 20px;
+    padding: 0;
+}
+
+.Job button:hover{
+    background-color: gray;
+}
+
+.Job button{
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 80%);
+    color: white;
+    font-size: 17px;
+    padding: 6px 8px 6px 8px;
+    margin: 0;
+}
+
+
+@media (max-width:613px){
+    .Job{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, auto);
+        grid-gap: 5px;
+        align-items: center;
+        justify-items: center;
+        margin: 20px 0;
+        padding: 0;
+    }
+}
+
+.Job input{
+    /*width: 10px;
+    height: 10px;
+    background-color: transparent;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);*/
+    display: none;
+    /*background-color: transparent;*/
+    /*color: black;*/
+}
+
+
+.ProcessedText{
+    font-size: 15px;
+    color:blue;
+}

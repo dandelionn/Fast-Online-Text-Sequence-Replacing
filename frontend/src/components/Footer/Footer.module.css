@@ -1,0 +1,32 @@
+.Footer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 56px;
+    align-self: flex-end;
+
+    background-color: gray;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.Footer div{
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 600px) {
+    .Footer{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+
+        background-color: gray;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;    
+        box-sizing: border-box;
+    }
+}

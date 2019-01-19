@@ -1,0 +1,21 @@
+.Content{
+    display: grid;
+    grid-template-rows: auto auto auto ;
+}
+
+.title{
+    padding: 0;
+    align-self: flex-start;
+    font-size: 25px;
+    margin:20px;
+}
+
+.description{
+    padding: 0;
+    align-self: flex-end;
+    font-size: 20px;
+    margin: 20px;
+    box-sizing: border-box;
+    background: rgba(95, 158, 160, 40%);
+    border-radius: 6px;
+}

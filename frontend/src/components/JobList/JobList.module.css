@@ -1,0 +1,26 @@
+.JobList{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: auto;
+    justify-items: center;
+    align-items: center;
+}
+
+.JobList ul{
+    margin: 0;
+    padding: 0;
+}
+
+.Add{
+    border-radius: 8px;
+    background-color: rgba(162, 163, 82, 40%);
+    font-size: 20px;
+    border-color: black;
+
+}
+
+.JobList ul{
+    
+}
