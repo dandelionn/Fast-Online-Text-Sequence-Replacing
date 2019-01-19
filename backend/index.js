@@ -4,18 +4,19 @@ var express = require("express"),
     app = express(),
     http = require("http").Server(app).listen(3000);
     upload = require("express-fileupload");
-
     app.use(upload());
 app.use(express.static('../frontend/build'));
 
 console.log("Server Started!");
-app.get("/", function(req, res){
-    //console.log(__dirname + "/index.html");
 
-    res.sendFile(__dirname + "/index.html");
+app.get("/", function(req, res){
+    console.log(path.join(__dirname, '..' ,"frontend/build/index.html"));
+
+    res.sendFile(path.join(__dirname, '..' ,"frontend/build/index.html"));
 });
 
 app.post("/upload", function(req, res) {
+    console.log("In upload");
     if(req.files){
 
         console.log(req.files)
@@ -62,7 +63,7 @@ const {TranslateFile} = require('./build/Release/addon'); // native c++
 
 var fs = require('fs');
 app.get("/process/:dictionaryFile/:textFile", function(req, res) {
-        
+    console.log("In process");
     if(req.params.dictionaryFile && req.params.textFile){
         const dictionaryFilePath = path.join('./uploads', req.params.dictionaryFile);
         const textFilePath = path.join('./uploads', req.params.textFile);
