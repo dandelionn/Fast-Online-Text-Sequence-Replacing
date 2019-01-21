@@ -5,7 +5,7 @@ import Spinner from '../../UI/Spinner/Spinner';
 import axios from 'axios';
 import fileDownload from 'js-file-download';
 
-const baseURL = "http://ec2-18-195-241-53.eu-central-1.compute.amazonaws.com/";
+const baseURL = "https://www.theusefulweb.tk/";
 //const baseURL = "http://localhost:3000/";
 
 class Job extends Component{
