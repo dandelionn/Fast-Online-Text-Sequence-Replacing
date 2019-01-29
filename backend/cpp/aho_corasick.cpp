@@ -1,5 +1,5 @@
-#include <aho_corasick.h>
-#include <aho_corasick_internals.h>
+#include "aho_corasick.h"
+#include "aho_corasick_internals.h"
 
 size_t computePosFromChar(char ch)
 {

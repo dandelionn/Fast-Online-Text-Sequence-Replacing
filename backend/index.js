@@ -97,7 +97,7 @@ app.get("/process/:dictionaryFile/:textFile", function(req, res) {
         var diff_mins = difference.getMinutes();
         var diff_seconds = difference.getSeconds();
         console.log(`Processing time :{cppProcessingTime}`);
-        res.send(`Time: ${cppProcessingTime} miliseconds! \n${result}`);
+        res.send(`Time: ${cppProcessingTime} miliseconds! \nAlgorithm running time: ${result}`);
     }
 });
 
