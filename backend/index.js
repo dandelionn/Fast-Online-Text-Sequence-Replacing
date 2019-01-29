@@ -44,7 +44,7 @@ app.post("/upload", function(req, res) {
 //define a route to donwload a file
 app.get('/download/:file(*)', (req, res) => {
     var file = req.params.file;
-    var fileLocation = path.join('./uploads', file);
+    var fileLocation = path.join('./processed', file);
     console.log(fileLocation);
     res.download(fileLocation, file, (error) => {
         if(error){
