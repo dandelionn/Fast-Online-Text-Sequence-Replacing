@@ -62,7 +62,7 @@ class Job extends Component{
     }
 
     downloadFileHandler = () => {
-        axios.get(`${baseURL}download/${this.state.textFile.name}`)
+        axios.get(`${baseURL}download/processed_${this.state.textFile.name}`)
                 .then( (response) => {
                     fileDownload(response.data, `processed_${this.state.textFile.name}`);
                     console.log(response);
