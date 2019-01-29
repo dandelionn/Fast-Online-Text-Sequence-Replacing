@@ -2,11 +2,11 @@
     "targets": [
         {
             "cflags": ["-Wall", "-std=c++17"],
-            "include_dirs": ["modern.h", "translator.h", 
+            "include_dirs": ["cpp/modern.h", "cpp/translator.h", 
                 "<!(node -e \"require('nan')\")"
             ],
             "target_name": "addon",
-            "sources": [ "main.cpp", "translator.cpp", "modern.cpp" ]
+            "sources": [ "cpp/main.cpp", "cpp/translator.cpp", "cpp/modern.cpp" ]
         }
     ]
 }
