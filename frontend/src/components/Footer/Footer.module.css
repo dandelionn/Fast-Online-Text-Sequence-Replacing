@@ -5,11 +5,15 @@
     height: 56px;
     align-self: flex-end;
 
-    background-color: gray;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     box-sizing: border-box;
+    background-color: #0B0C10;
+}
+
+.Footer p{
+    color: white;
 }
 
 .Footer div{
@@ -23,10 +27,26 @@
         flex-direction: column;
         height: auto;
 
-        background-color: gray;
+        background-color: #0B0C10;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 20px;    
+        padding: 10px 0px;    
         box-sizing: border-box;
+    }
+
+    .Footer p{
+        color: white;
+        font-size: 12px;
+    }
+    
+    .Footer div{
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
+    }
+
+    .Footer select{
+        font-size: 12px;
+        font-family: inherit;
     }
 }

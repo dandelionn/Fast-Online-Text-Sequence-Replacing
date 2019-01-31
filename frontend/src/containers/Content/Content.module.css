@@ -1,6 +1,7 @@
+
 .Content{
     display: grid;
-    grid-template-rows: auto auto auto ;
+    grid-template-rows:  min-content minmax(300px, auto) min-content;
 }
 
 .title{
@@ -8,6 +9,7 @@
     align-self: flex-start;
     font-size: 25px;
     margin:20px;
+    color: #66FCF1;
 }
 
 .description{
@@ -16,6 +18,16 @@
     font-size: 20px;
     margin: 20px;
     box-sizing: border-box;
-    background: rgba(95, 158, 160, 40%);
-    border-radius: 6px;
+    /*background: rgba(95, 158, 160, 40%);*/
+    color: #C5C6C7
+}
+
+@media (max-width:550px){
+    .title{
+        font-size: 16px;
+    }
+    
+    .description{
+        font-size: 14px;
+    }
 }

@@ -1,17 +1,18 @@
 
 .DropButton:hover{
-    background-color: lightblue;
+    background-color: #45A29E;
+    color: black;
 }
 
 
 .DropButton{
     margin:0;
     box-sizing: border-box;
-    background-color: rgb(128, 175, 124);
-    border-radius: 3px;
+    background-color: #1F2833;
+    border: 1px solid #66fcf1;
     padding: 0px 10px;
-    box-shadow: 1px 1px rgba(0, 0, 0, 60%);
-    color: white;
+    /*box-shadow: 1px 1px rgba(0, 0, 0, 60%);*/
+    color: #C5C6C7;
 }
 
 .DropButton input{
@@ -37,9 +38,4 @@
 
 .DropFile{
     font-size: 14px;
-}
-
-.Selected{
-    font-size: 16px;
-    color: rgba(185, 34, 24, 0.63);
 }

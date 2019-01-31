@@ -4,25 +4,24 @@
     grid-gap: 15px;
     align-items: center;
     justify-items: center;
-    margin: 20px;
+    margin: 0;
     padding: 0;
 }
-
 .Job button:hover{
-    background-color: gray;
+    background-color: #45A29E;
+    color: black;
 }
 
 .Job button{
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 80%);
-    color: white;
+    background-color: #0B0C10;
+    border: 1px solid #66fcf1;
+    color: #C5C6C7;
     font-size: 17px;
     padding: 6px 8px 6px 8px;
     margin: 0;
 }
 
-
-@media (max-width:613px){
+@media (max-width:550px){
     .Job{
         display: grid;
         grid-template-columns: auto;
@@ -30,7 +29,7 @@
         grid-gap: 5px;
         align-items: center;
         justify-items: center;
-        margin: 20px 0;
+        margin: 0;
         padding: 0;
     }
 }
@@ -46,8 +45,23 @@
     /*color: black;*/
 }
 
-
 .ProcessedText{
     font-size: 15px;
     color:blue;
+}
+
+.SelectionArea{
+    display: grid;
+    grid-template-rows: auto min-content;
+    grid-gap: 2px;
+    margin: 0;
+    padding: 0;
+}
+
+.Selected{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: rgb(5, 2, 2);
+    background-color: rgba(106, 118, 131, 50%);
 }

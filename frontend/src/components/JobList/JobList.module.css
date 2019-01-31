@@ -1,26 +1,217 @@
+
+.JobListItem,.ControlButtons,.AddJob,.RemoveJob{
+    padding: 0;
+    margin: 0;
+}
+
+.JobListItem{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.ControlButtons{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    font-family: 'Courier New', Courier, monospace;
+    margin-right: 5px;
+}
+
+.AddJob{
+    font-family: inherit;
+    font-size: 20px;
+    line-height: 20px;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-align: center;
+    background-color: rgb(45, 134, 130);;
+    border: 1px solid #66fcf1;
+    color:black;
+    margin-bottom: 2px;
+}
+
+.RemoveJob{
+    font-family: inherit;
+    font-size: 20px;
+    line-height: 20px;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-align: center;
+    background-color:  rgb(45, 134, 130);;
+    border: 1px solid #66fcf1;
+    color:black;
+    margin-top: 2px;
+}
+
+.AddJob:hover, .RemoveJob:hover{
+    background-color: #66fcf1;
+    color: black;
+}
+
+@media (max-width:550px){
+    .JobListItem{
+        display: flex;
+        flex-direction: column;
+    }
+    .ControlButtons{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 5px;
+    }
+
+    .JobListItem {
+        margin-bottom: 30px;
+        margin-top: 10px;
+    }
+
+    .AddJob{
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-right: 5px;
+        margin-bottom: 0px;
+    }
+    
+    .RemoveJob{
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 5px;
+        margin-top: 0px;
+    }
+}
+
 .JobList{
     margin: 0;
     padding: 0;
     list-style: none;
-    display: grid;
-    grid-template-columns: auto;
-    justify-items: center;
+    justify-items: center;  
     align-items: center;
+    grid-gap: 20px;
+    align-self: center;
+    justify-self: center;
 }
+
+
+
 
 .JobList ul{
     margin: 0;
     padding: 0;
+
+    /*max-height: 100%;*/
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    /*scrollbar for firefox */
+    scrollbar-width: thin;
+    scrollbar-color:  rgb(179, 199, 197) rgb(45, 134, 130); 
+}
+
+.Add:hover{
+    background-color: #66fcf1;
+    color: black;
 }
 
 .Add{
-    border-radius: 8px;
-    background-color: rgba(162, 163, 82, 40%);
-    font-size: 20px;
-    border-color: black;
-
+    line-height: 37px;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    background-color: #1F2833;
+    border: 1px solid #66fcf1;
+    font-family: 'Courier New';
+    text-align: center;
+    font-size: 30px;
+    color: #66fcf1;
 }
 
-.JobList ul{
-    
+/*scrollbar for chrome*/
+.List::-webkit-scrollbar {
+    width: 7px;
+}
+  
+  /* Track */
+.List::-webkit-scrollbar-track {
+    background: rgb(45, 134, 130);
+    /*border: 1px solid ;*/ 
+}
+   
+  /* Handle */
+.List::-webkit-scrollbar-thumb {
+    background: rgb(179, 199, 197); 
+    box-shadow: #1F2833;
+    -webkit-box-shadow: inset 0 0 6px rgb(45, 134, 130);
+}
+  
+  /* Handle on hover */
+.List::-webkit-scrollbar-thumb:hover {
+    background: #3b3f44; 
+}
+
+.FailedJob button{
+    padding: 0;
+    margin: 0;
+    line-height: 25px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #1F2833;
+    border: 1px solid #dd1919;
+    font-family:  Arial, sans-serif;
+    text-align: center;
+    font-size: 25px;
+    color: #dd1919;
+    margin-left: 10px;
+}
+.FailedJob p{
+    padding: 0;
+    margin: 0;
+    color:#dd1919;
+}
+
+.FailedJob{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:550px){
+    .FailedJob{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .FailedJob button{
+        margin-left:0px;
+        margin-bottom: 2px;
+    }
+
+    .FailedJob p{
+        padding: 0;
+        margin: 0;
+        color:#dd1919;
+        font-size: 14px;
+    }
+}
+
+@media (max-width:550px)
+{
+    .Add{
+        line-height: 30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #1F2833;
+        border: 1px solid #66fcf1;
+        font-family: 'Courier New';
+        text-align: center;
+        font-size: 25px;
+        color: #66fcf1;
+    }
 }

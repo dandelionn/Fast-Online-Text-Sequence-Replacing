@@ -18,12 +18,12 @@ class Job extends Component{
     }
 
     shortenFilename = (filename) => {
-        if (filename.length < 25){
+        if (filename.length < 18){
             return filename;
         } else {
             const point = filename.lastIndexOf('.');
-            if(point > 18){
-                return filename.slice(0, 18) 
+            if(point > 11){
+                return filename.slice(0, 11) 
                         + '..'
                         + filename.slice(point, filename.length);
             }
@@ -68,6 +68,7 @@ class Job extends Component{
                     console.log(response);
                 })
                 .catch(errors => {
+                    this.props.markAsFailedJob("Error! Download failed!");
                     console.log(errors);
                 })
                 .then( () => {
@@ -83,6 +84,7 @@ class Job extends Component{
                         this.setState({jobFinished: true});
                     })
                     .catch(errors => {
+                        this.props.markAsFailedJob("Error! Processing failed!");
                         console.log(errors);
                     })
                     .then( () => {
@@ -109,11 +111,13 @@ class Job extends Component{
                         }
                     })
                 .catch(errors => {
+                        this.props.markAsFailedJob("Error! Uploading files failed!");
                         console.log(errors);
                 });
     }
 
     processInputHandler = () => {
+        this.props.hideControlButtons();
         this.setState({isProcessing: true});
         this.uploadDataHandler(this.state.dictionaryFile);
         this.uploadDataHandler(this.state.textFile);            
@@ -138,26 +142,29 @@ class Job extends Component{
     }
 
     render(){
+        const dictionary = this.state.dictionaryFile ? this.shortenFilename(this.state.dictionaryFile.name) : null;
+        const text = this.state.textFile ? this.shortenFilename(this.state.textFile.name) : null;
+
         let content = <>
-                        <div><DropButton
-                            dictionary={this.state.dictionaryFile ? this.shortenFilename(this.state.dictionaryFile.name) : null}
+                        <div className={classes.SelectionArea} ><DropButton
                             dragOver={this.dragOverHandler}
                             drop={this.dropHandler}
                             dragLeave={this.dragLeaveHandler}
                             selectionType='dictionary'
                             inputChange={this.inputChangedHandler}/>
+                            <p className={classes.Selected}>{dictionary}</p>
                         </div>
 
-                        <div><DropButton 
-                            text={this.state.textFile ? this.shortenFilename(this.state.textFile.name) : null}
+                        <div className={classes.SelectionArea}><DropButton 
                             dragOver={this.dragOverHandler}
                             drop={this.dropHandler}
                             dragLeave={this.dragLeaveHandler}
                             selectionType='text'
                             inputChange={this.inputChangedHandler}/>
+                            <p className={classes.Selected}>{text}</p>
                         </div>
 
-                        <div><button onClick={this.processInputHandler} >Process File</button></div>
+                        <div><button onClick={this.processInputHandler}> Process File </button></div>
                       </>;
 
         if(this.state.isProcessing === true){
@@ -175,9 +182,9 @@ class Job extends Component{
         }
 
         return (
-                <li className={classes.Job}>
+                <div className={classes.Job}>
                   {content}
-                </li>
+                </div>
         );
     }
 }

@@ -5,8 +5,8 @@ const footer = () => {
     return (
         <div className={classes.Footer}>
             <div>
-                <p><strong> &nbsp; 0 &nbsp; </strong></p>
-                <p><strong> processed files so far </strong></p>
+                <p>&nbsp; 0 &nbsp; </p>
+                <p>processed files so far </p>
             </div>
          
             <p> Terms and Conditions </p>
