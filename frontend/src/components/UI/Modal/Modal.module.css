@@ -1,4 +1,4 @@
-.Modal {
+/*.Modal {
     position: fixed;
     z-index: 500;
     background-color: white;
@@ -17,4 +17,4 @@
         width: 200px;
         left: calc(50% - 250px);
     }
-}
+}*/

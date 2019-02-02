@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import classes from './Footer.module.css';
-import Modal from '../UI/Modal/Modal';
+//import Modal from '../UI/Modal/Modal';
+/*<Modal showModal={this.state.showModal}  modalClosed={this.showModalHandler}></Modal>*/
 
 class footer extends Component {
     state = {showModal: false}
@@ -12,7 +13,7 @@ class footer extends Component {
     render(){
         return (
             <div className={classes.Footer}>
-                <Modal showModal={this.state.showModal}  modalClosed={this.showModalHandler}></Modal>
+
                 <div>
                     <p>&nbsp; {this.props.processedFilesCount} &nbsp; </p>
                     <p>{this.props.language.processedFilesSoFar}</p>
