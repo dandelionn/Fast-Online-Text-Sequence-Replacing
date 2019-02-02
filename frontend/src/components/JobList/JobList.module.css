@@ -92,9 +92,6 @@
     justify-self: center;
 }
 
-
-
-
 .JobList ul{
     margin: 0;
     padding: 0;
@@ -105,8 +102,8 @@
     overflow-y: auto;
 
     /*scrollbar for firefox */
-    scrollbar-width: thin;
-    scrollbar-color:  rgb(179, 199, 197) rgb(45, 134, 130); 
+    /*scrollbar-width: thin;
+    scrollbar-color:  rgb(179, 199, 197) rgb(45, 134, 130); */
 }
 
 .Add:hover{
@@ -126,30 +123,30 @@
     font-size: 30px;
     color: #66fcf1;
 }
-
+/*
 /*scrollbar for chrome*/
-.List::-webkit-scrollbar {
+/*.List::-webkit-scrollbar {
     width: 7px;
-}
+}*/
   
   /* Track */
-.List::-webkit-scrollbar-track {
+/*.List::-webkit-scrollbar-track {
     background: rgb(45, 134, 130);
     /*border: 1px solid ;*/ 
-}
+/*}*/
    
   /* Handle */
-.List::-webkit-scrollbar-thumb {
+/*.List::-webkit-scrollbar-thumb {
     background: rgb(179, 199, 197); 
     box-shadow: #1F2833;
     -webkit-box-shadow: inset 0 0 6px rgb(45, 134, 130);
-}
+}*/
   
   /* Handle on hover */
-.List::-webkit-scrollbar-thumb:hover {
+/*.List::-webkit-scrollbar-thumb:hover {
     background: #3b3f44; 
 }
-
+*/
 .FailedJob button{
     padding: 0;
     margin: 0;

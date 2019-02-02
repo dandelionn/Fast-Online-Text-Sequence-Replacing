@@ -4,6 +4,11 @@ import classes from './DropButton.module.css';
 class DropButton extends Component{
 
     render(){
+        let selectionType = this.props.language.text;  
+        if(this.props.selectionType === 'dictionary')
+        {
+            selectionType = this.props.language.dictionary;
+        }
 
         return (
             <div onClick={() => this.inputElement.click()}
@@ -12,8 +17,8 @@ class DropButton extends Component{
                  onDragOver={this.props.dragOver}
                  onDragLeave={this.props.dragLeave}>
            
-           <p className={classes.DropFile}><strong>SELECT/DROP FILE</strong></p>
-            <p className={classes.DropFile}>{this.props.selectionType}</p>
+           <p className={classes.DropFile}><strong>{this.props.language.selectDropFile}</strong></p>
+            <p className={classes.DropFile}>{selectionType}</p>
             
             <input type="file" accept="textfile/*"
                 ref={ input => this.inputElement = input} 

@@ -45,14 +45,18 @@ class JobList extends Component{
                         <button className={classes.AddJob} onClick={() => this.addNewJob(jobId)}>+</button>
                         <button className={classes.RemoveJob} onClick={() => this.deleteJob(jobId)}>-</button>
                     </div>
-                    <Job hideControlButtons={() => this.hideJobControlButtons(jobId)}
-                         markAsFailedJob={(message) => this.markAsFailedJob(jobId, message)} />
+                    <Job
+                         updateProcessedFilesCount={this.props.updateProcessedFilesCount} 
+                         language={this.props.language}
+                         hideControlButtons={() => this.hideJobControlButtons(jobId)}
+                         markAsFailedJob={(message) => this.markAsFailedJob(jobId, message)}
+                         deleteJob={() => this.deleteJob(jobId)} />
                 </div>);
             } else {
                 console.log(jobId);
                 return (<div key = {jobId} className={classes.JobListItem}>
                     <div className={classes.FailedJob}>
-                        <p>This job has failed!</p>
+                        <p>{this.props.language.jobFailure}</p>
                         <button onClick={() => this.deleteJob(jobId)}>X</button>
                     </div>
                 </div>);

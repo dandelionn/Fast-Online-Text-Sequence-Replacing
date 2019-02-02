@@ -6,18 +6,16 @@ class Content extends Component{
     state = {
         isProcessing: false
     }
-
     render(){
 
         return(
             <div className={classes.Content}>
-                <p className = {classes.title}>Aho-Corasick Words Replacer</p>
+                <p className = {classes.title}>{this.props.language.title}</p>
 
-                <JobList />
+                <JobList updateProcessedFilesCount={this.props.updateProcessedFilesCount}
+                        language={this.props.language} />
 
-                <p className ={classes.description}>Choose a file and a dictionary. 
-                    Hit the process button and the files will be uploaded and processed. 
-                    After that a download button will appear. You have to provide non-empty files.</p>
+                <p className ={classes.description}>{this.props.language.description}</p>
             </div>
         );
     }

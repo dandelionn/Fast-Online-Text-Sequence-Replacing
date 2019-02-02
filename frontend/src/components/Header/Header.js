@@ -3,13 +3,14 @@ import Logo from '../Logo/Logo';
 
 import classes from './Header.module.css';
 
-const header = () => {
+
+const header = (props) => {
     return (
         <div className={classes.Header}>
             <Logo />
             <div>
-                <button className="signIn">Sign In</button>
-                <button className="signUp">Sign Up</button>
+                <button className="signIn">{props.language.signIn}</button>
+                <button className="signUp">{props.language.signUp}</button>
             </div>
         </div>
     );

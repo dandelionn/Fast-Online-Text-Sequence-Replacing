@@ -66,6 +66,7 @@ class Job extends Component{
                 .then( (response) => {
                     fileDownload(response.data, `processed_${this.state.textFile.name}`);
                     console.log(response);
+                    this.props.deleteJob();
                 })
                 .catch(errors => {
                     this.props.markAsFailedJob("Error! Download failed!");
@@ -81,6 +82,7 @@ class Job extends Component{
         axios.get(`${baseURL}process/${this.state.dictionaryFile.name}/${this.state.textFile.name}`)
                     .then( response => {
                         console.log(response);
+                        this.props.updateProcessedFilesCount(response.data.processedFilesCount);
                         this.setState({jobFinished: true});
                     })
                     .catch(errors => {
@@ -147,6 +149,7 @@ class Job extends Component{
 
         let content = <>
                         <div className={classes.SelectionArea} ><DropButton
+                            language={this.props.language}
                             dragOver={this.dragOverHandler}
                             drop={this.dropHandler}
                             dragLeave={this.dragLeaveHandler}
@@ -156,6 +159,7 @@ class Job extends Component{
                         </div>
 
                         <div className={classes.SelectionArea}><DropButton 
+                            language={this.props.language}
                             dragOver={this.dragOverHandler}
                             drop={this.dropHandler}
                             dragLeave={this.dragLeaveHandler}
@@ -164,12 +168,12 @@ class Job extends Component{
                             <p className={classes.Selected}>{text}</p>
                         </div>
 
-                        <div><button onClick={this.processInputHandler}> Process File </button></div>
+                        <div><button onClick={this.processInputHandler}>{this.props.language.processFile}</button></div>
                       </>;
 
         if(this.state.isProcessing === true){
             content = <><Spinner />
-                        <p>Processing...</p>  
+                        <p>{this.props.language.processing}</p>  
                       </>
 
         }
@@ -177,7 +181,7 @@ class Job extends Component{
         if(this.state.jobFinished === true){
             content = <>
                         <p className={classes.ProcessedText}>&nbsp; processed_{this.shortenFilename(this.state.textFile.name)}</p>
-                        <button onClick={this.downloadFileHandler}>Download </button>
+                        <button onClick={this.downloadFileHandler}>{this.props.language.download}</button>
                       </>
         }
 
