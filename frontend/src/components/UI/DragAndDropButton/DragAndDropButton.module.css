@@ -1,11 +1,11 @@
 
-.DropButton:hover{
+.DragAndDropButton:hover{
     background-color: #45A29E;
     color: black;
 }
 
 
-.DropButton{
+.DragAndDropButton{
     margin:0;
     box-sizing: border-box;
     background-color: #1F2833;
@@ -15,7 +15,7 @@
     color: #C5C6C7;
 }
 
-.DropButton input{
+.DragAndDropButton input{
     /*width: 10px;
     height: 10px;
     background-color: transparent;

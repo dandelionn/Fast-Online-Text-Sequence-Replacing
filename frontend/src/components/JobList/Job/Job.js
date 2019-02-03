@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 import classes from './Job.module.css';
-import DropButton from '../../UI/DropButton/DropButton';
+import DragAndDropButton from '../../UI/DragAndDropButton/DragAndDropButton';
 import Spinner from '../../UI/Spinner/Spinner';
 import axios from 'axios';
 import fileDownload from 'js-file-download';
 
-const baseURL = "https://www.theusefulweb.tk/";
-//const baseURL = "http://localhost:3000/";
+let baseURL = "https://www.theusefulweb.tk/";
+if(window.location.href.startsWith("https://www.theusefulweb.tk/"))
+    baseURL = "https://www.theusefulweb.tk/";
+else if(window.location.href.startsWith("https://theusefulweb.tk/"))
+    baseURL = "https://theusefulweb.tk/";
+else baseURL = "http://localhost:3000/";
 
 class Job extends Component{
     state = {
@@ -148,7 +152,7 @@ class Job extends Component{
         const text = this.state.textFile ? this.shortenFilename(this.state.textFile.name) : null;
 
         let content = <>
-                        <div className={classes.SelectionArea} ><DropButton
+                        <div className={classes.SelectionArea} ><DragAndDropButton
                             language={this.props.language}
                             dragOver={this.dragOverHandler}
                             drop={this.dropHandler}
@@ -158,7 +162,7 @@ class Job extends Component{
                             <p className={classes.Selected}>{dictionary}</p>
                         </div>
 
-                        <div className={classes.SelectionArea}><DropButton 
+                        <div className={classes.SelectionArea}><DragAndDropButton 
                             language={this.props.language}
                             dragOver={this.dragOverHandler}
                             drop={this.dropHandler}

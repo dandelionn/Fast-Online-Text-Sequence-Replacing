@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import classes from './DropButton.module.css';
+import classes from './DragAndDropButton.module.css';
 
-class DropButton extends Component{
+class DragAndDropButton extends Component{
 
     render(){
         let selectionType = this.props.language.text;  
@@ -12,7 +12,7 @@ class DropButton extends Component{
 
         return (
             <div onClick={() => this.inputElement.click()}
-                 className={classes.DropButton} 
+                 className={classes.DragAndDropButton} 
                  onDrop={(ev) => {this.props.drop(ev, this.props.selectionType)}} 
                  onDragOver={this.props.dragOver}
                  onDragLeave={this.props.dragLeave}>
@@ -31,4 +31,4 @@ class DropButton extends Component{
 //const fileInput = document.getElementById("input-button");
 //aTag.addEventListener("click", () => fileInput.click());
 
-export default DropButton;
+export default DragAndDropButton;

@@ -4,11 +4,11 @@ import classes from './Footer.module.css';
 /*<Modal showModal={this.state.showModal}  modalClosed={this.showModalHandler}></Modal>*/
 
 class footer extends Component {
-    state = {showModal: false}
+    /*state = {showModal: false}
 
     showModalHandler = () => {
         this.setState({showModal: !this.state.showModal});
-    }
+    }*/
 
     render(){
         return (
