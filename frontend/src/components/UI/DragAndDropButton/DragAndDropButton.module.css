@@ -1,9 +1,7 @@
-
 .DragAndDropButton:hover{
     background-color: #45A29E;
     color: black;
 }
-
 
 .DragAndDropButton{
     margin:0;
@@ -11,21 +9,12 @@
     background-color: #1F2833;
     border: 1px solid #66fcf1;
     padding: 0px 10px;
-    /*box-shadow: 1px 1px rgba(0, 0, 0, 60%);*/
     color: #C5C6C7;
 }
 
 .DragAndDropButton input{
-    /*width: 10px;
-    height: 10px;
-    background-color: transparent;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);*/
     display: none;
-    /*background-color: transparent;*/
-    /*color: black;*/
 }
-
 
 .ChooseFile, .DropFile, .Selected{
     padding: 0;

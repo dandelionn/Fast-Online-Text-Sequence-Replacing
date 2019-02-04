@@ -40,8 +40,6 @@ app.post("/upload", function(req, res) {
     }
 });
 
-
-//define a route to donwload a file
 app.get('/download/:file(*)', (req, res) => {
     var file = req.params.file;
     var fileLocation = path.join('./processed', file);
@@ -51,18 +49,18 @@ app.get('/download/:file(*)', (req, res) => {
             console.log(error);
         }
     });
-    /*, function(err){
-        
-            res.send("download error occuped");
-        }
-        else {
-            res.send("Done!");
-        }
-    });*/
 });
 
 
-const {TranslateFile} = require('./build/Release/addon'); // native c++
+const {ReplaceWords} = require('./build/Release/addon'); // native c++
+
+let processedFilesCount = 0;
+
+
+app.get("/processedFilesCount", (req, res) => {
+    res.send(`{"processedFilesCount": ${processedFilesCount}}`);
+});
+
 
 var fs = require('fs');
 app.get("/process/:dictionaryFile/:textFile", function(req, res) {
@@ -78,32 +76,13 @@ app.get("/process/:dictionaryFile/:textFile", function(req, res) {
         const textFilePath = path.join('./uploads', req.params.textFile);
         const outputFilePath = path.join('./processed', 'processed_' + req.params.textFile);
 
-        const start = Date.now();
+        const cppProcessingTime = ReplaceWords(
+                                        dictionaryFilePath, 
+                                        textFilePath, 
+                                        outputFilePath);
 
-        const result = `Returned value: ${
-                    TranslateFile(
-                                dictionaryFilePath, 
-                                textFilePath, 
-                                outputFilePath)
-                    }`;
-
-        const end = Date.now();
-        const cppProcessingTime = end - start; // time in milliseconds
-
-        var difference = new Date(cppProcessingTime);
-        //If you really want the hours/minutes, 
-        //Date has functions for that too:
-        var diff_hours = difference.getHours();
-        var diff_mins = difference.getMinutes();
-        var diff_seconds = difference.getSeconds();
-        console.log(`Processing time :{cppProcessingTime}`);
-        res.send(`Time: ${cppProcessingTime} miliseconds! \nAlgorithm running time: ${result}`);
+        ++ processedFilesCount;
+        console.log(`Processing time :${cppProcessingTime}`);
+        res.send(`{"processedFilesCount": ${processedFilesCount}, "cppProcessingTime": ${cppProcessingTime}}`);
     }
 });
-
-
-/**
- * in console type: npm run compile --python=python2.7;
- * node index.js
- *  
- * */

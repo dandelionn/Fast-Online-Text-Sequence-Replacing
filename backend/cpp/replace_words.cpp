@@ -3,10 +3,8 @@
 #include <vector>
 #include <chrono>
 
-#include "translator.h"
-#include "modern.h"
+#include "replace_words.h"
 #include "aho_corasick.h"
-
 
 std::string readFile(const std::string &fileName)
 {
@@ -35,8 +33,6 @@ std::string ProccessInput(std::string dictionaryFile, std::string inputFile, std
 	std::string dictionaryText = readFile(dictionaryFile);
 	std::string output = translateFile(inputText, dictionaryText);
     
-
-
 	outputToFile(outputFile, output);
     
     auto end = std::chrono::system_clock::now();

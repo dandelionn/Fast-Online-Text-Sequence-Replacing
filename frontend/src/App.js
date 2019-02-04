@@ -5,11 +5,39 @@ import Footer from './components/Footer/Footer';
 import Content from './containers/Content/Content';
 import Languages from './Languages';
 
+import axios from 'axios';
+
+let baseURL = "https://www.theusefulweb.tk/";
+if(window.location.href.startsWith("https://www.theusefulweb.tk/"))
+    baseURL = "https://www.theusefulweb.tk/";
+else if(window.location.href.startsWith("https://theusefulweb.tk/"))
+    baseURL = "https://theusefulweb.tk/";
+else baseURL = "http://localhost:3000/";
+
+
 class App extends Component {
   state = {
     language: Languages['english'],
     processedFilesCount : 0
   }
+
+  /*requestProcessedFilesCount = () => {
+    let processedFilesCount = 0;
+    axios.get(`${baseURL}processedFilesCount`)
+    .then( (response) => {
+                processedFilesCount = response.data;
+                console.log(response);
+    })
+    .catch(errors => {
+        console.log(errors);
+    });
+  
+    return processedFilesCount;
+  }
+
+  componentDidMount(){
+    this.setState({processedFilesCount: this.requestProcessedFilesCount()})
+  }*/
 
   changeLanguageHandler = (e) => {
       this.setState({
@@ -18,8 +46,10 @@ class App extends Component {
   }
 
   updateProcessedFilesCountHandler = (count) => {
+      console.log("count", count);
       this.setState({processedFilesCount: count});
   }
+  
 
   render() {
     return (

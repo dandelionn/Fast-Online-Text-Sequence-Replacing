@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import classes from './DragAndDropButton.module.css';
 
 class DragAndDropButton extends Component{
-
     render(){
         let selectionType = this.props.language.text;  
         if(this.props.selectionType === 'dictionary')
@@ -27,8 +26,5 @@ class DragAndDropButton extends Component{
         );
     }
 };
-
-//const fileInput = document.getElementById("input-button");
-//aTag.addEventListener("click", () => fileInput.click());
 
 export default DragAndDropButton;

@@ -18,7 +18,7 @@ class Job extends Component{
           textFile: null,
           isProcessing: false,
           jobFinished: false,
-          isTimeToProcess: false
+          isTimeToUpload: false
     }
 
     shortenFilename = (filename) => {
@@ -61,10 +61,6 @@ class Job extends Component{
         ev.preventDefault();
     }
 
-    dragLeaveHandler = (ev) => {
-        console.log("Drag leave!");
-    }
-
     downloadFileHandler = () => {
         axios.get(`${baseURL}download/processed_${this.state.textFile.name}`)
                 .then( (response) => {
@@ -85,7 +81,7 @@ class Job extends Component{
         console.log("IN PROCESS FILE");
         axios.get(`${baseURL}process/${this.state.dictionaryFile.name}/${this.state.textFile.name}`)
                     .then( response => {
-                        console.log(response);
+                        console.log(response.data);
                         this.props.updateProcessedFilesCount(response.data.processedFilesCount);
                         this.setState({jobFinished: true});
                     })
@@ -109,11 +105,11 @@ class Job extends Component{
         axios.post(`${baseURL}upload`, data, config)
                 .then( response => {
                         console.log(response);
-                        if(this.state.isTimeToProcess === true) {
-                            this.setState({isTimeToProcess: false});
+                        if(this.state.isTimeToUpload === true) {
+                            this.setState({isTimeToUpload: false});
                             this.processFileHandler();
                         } else {
-                            this.setState({isTimeToProcess: true});
+                            this.setState({isTimeToUpload: true});
                         }
                     })
                 .catch(errors => {
@@ -123,10 +119,13 @@ class Job extends Component{
     }
 
     processInputHandler = () => {
-        this.props.hideControlButtons();
-        this.setState({isProcessing: true});
-        this.uploadDataHandler(this.state.dictionaryFile);
-        this.uploadDataHandler(this.state.textFile);            
+        if(this.state.dictionaryFile && this.state.textFile)
+        {
+            this.props.hideControlButtons();
+            this.setState({isProcessing: true});
+            this.uploadDataHandler(this.state.dictionaryFile);
+            this.uploadDataHandler(this.state.textFile);
+        }            
     } 
 
     inputChangedHandler = (ev, selectionType) => {
