@@ -17,7 +17,7 @@ const Languages = {
         downloading: 'Downloading...',
         text: 'text',
         dictionary: 'dictionary',
-        termsAndConditionsPage: 'You can use this web app for free!',
+        termsAndConditionsPage: 'You can use this web app for free! Files larger that 100 MB are not allowed.',
         clickAnywhere: 'Click anywhere to go back.'
     },
 
@@ -38,7 +38,7 @@ const Languages = {
         downloading: 'Descărcare...',
         text: 'text',
         dictionary: 'dicționar',
-        termsAndConditionsPage: 'Poți folosi această aplicație web gratis!',
+        termsAndConditionsPage: 'Poți folosi această aplicație web gratuit! Fișierele mai mari de 100 MB nu sunt permise.',
         clickAnywhere: 'Apasă oriunde pentru a merge înapoi.'
     }
 }
