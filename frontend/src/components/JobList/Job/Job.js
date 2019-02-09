@@ -180,32 +180,24 @@ class Job extends Component{
                         <div><button onClick={this.processInputHandler}>{this.props.language.processFile}</button></div>
                       </>;
 
-  
-
-        if(this.state.isDownloading === true){
-            content = <><Spinner />
-                        <p className={classes.SpinnerText}>{this.props.language.downloading}</p>  
-                      </>;
-        }
-
         if(this.state.isUploading === true){
             content = <><Spinner />
                         <p className={classes.SpinnerText}>{this.props.language.uploading}</p>  
                       </>;
-        }
-
-        if(this.state.isProcessing === true){
+        } else if(this.state.isProcessing === true){
             content = <><Spinner />
                         <p className={classes.SpinnerText}>{this.props.language.processing}</p>  
                       </>;
-        }
-
-        if(this.state.jobFinished === true){
+        } else if(this.state.isDownloading === true){
+            content = <><Spinner />
+                        <p className={classes.SpinnerText}>{this.props.language.downloading}</p>  
+                      </>;
+        } else if(this.state.jobFinished === true){
             content = <>
                         <p className={classes.ProcessedText}>&nbsp; processed_{this.shortenFilename(this.state.textFile.name)}</p>
                         <button onClick={this.downloadFileHandler}>{this.props.language.download}</button>
                       </>
-        }
+        } 
 
         return (
                 <div className={classes.Job}>
