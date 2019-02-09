@@ -12,10 +12,15 @@ const Languages = {
         processFile: 'Process File',
         download: 'Download',
         jobFailure: 'Error! This job has failed!',
+        uploading: 'Uploading...',
         processing: 'Processing...',
+        downloading: 'Downloading...',
         text: 'text',
-        dictionary: 'dictionary'
+        dictionary: 'dictionary',
+        termsAndConditionsPage: 'You can use this web app for free!',
+        clickAnywhere: 'Click anywhere to go back.'
     },
+
     romanian : {
         title:'Înlocuire rapidă de secvențe text',
         description: 'Alege un text și un dicționar. Apasă butonul de procesare, iar fișierele vor fi încărcate și procesate. După aceasta va apărea un buton de descărcare. Este necesar să alegeți fișiere care nu sunt goale.',
@@ -28,9 +33,13 @@ const Languages = {
         processFile: 'Procesează',
         download: 'Descărcați',
         jobFailure: 'Eroare! Acest proces a eșuat!',
+        uploading: 'Încărcare...',
         processing: 'Procesare...',
+        downloading: 'Descărcare...',
         text: 'text',
-        dictionary: 'dicționar'
+        dictionary: 'dicționar',
+        termsAndConditionsPage: 'Poți folosi această aplicație web gratis!',
+        clickAnywhere: 'Apasă oriunde pentru a merge înapoi.'
     }
 }
 

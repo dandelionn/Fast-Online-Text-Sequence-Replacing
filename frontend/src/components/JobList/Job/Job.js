@@ -18,7 +18,9 @@ class Job extends Component{
           textFile: null,
           isProcessing: false,
           jobFinished: false,
-          isTimeToUpload: false
+          isTimeToUpload: false,
+          isDownloading: false,
+          isUploading: false
     }
 
     shortenFilename = (filename) => {
@@ -62,11 +64,11 @@ class Job extends Component{
     }
 
     downloadFileHandler = () => {
+        this.setState({isDownloading: true});
         axios.get(`${baseURL}download/processed_${this.state.textFile.name}`)
                 .then( (response) => {
-                    fileDownload(response.data, `processed_${this.state.textFile.name}`);
                     console.log(response);
-                    this.props.deleteJob();
+                    fileDownload(response.data, `processed_${this.state.textFile.name}`);
                 })
                 .catch(errors => {
                     this.props.markAsFailedJob("Error! Download failed!");
@@ -74,10 +76,13 @@ class Job extends Component{
                 })
                 .then( () => {
                     this.setState({jobFinished: false});
+                    this.setState({isDownloading: false});
+                    this.props.deleteJob();
                 });
     }
 
     processFileHandler = () => {
+        this.setState({isProcessing: true});
         console.log("IN PROCESS FILE");
         axios.get(`${baseURL}process/${this.state.dictionaryFile.name}/${this.state.textFile.name}`)
                     .then( response => {
@@ -107,6 +112,7 @@ class Job extends Component{
                         console.log(response);
                         if(this.state.isTimeToUpload === true) {
                             this.setState({isTimeToUpload: false});
+                            this.setState({isUploading: false});
                             this.processFileHandler();
                         } else {
                             this.setState({isTimeToUpload: true});
@@ -122,7 +128,7 @@ class Job extends Component{
         if(this.state.dictionaryFile && this.state.textFile)
         {
             this.props.hideControlButtons();
-            this.setState({isProcessing: true});
+            this.setState({isUploading: true});
             this.uploadDataHandler(this.state.dictionaryFile);
             this.uploadDataHandler(this.state.textFile);
         }            
@@ -174,11 +180,24 @@ class Job extends Component{
                         <div><button onClick={this.processInputHandler}>{this.props.language.processFile}</button></div>
                       </>;
 
+  
+
+        if(this.state.isDownloading === true){
+            content = <><Spinner />
+                        <p className={classes.SpinnerText}>{this.props.language.downloading}</p>  
+                      </>;
+        }
+
+        if(this.state.isUploading === true){
+            content = <><Spinner />
+                        <p className={classes.SpinnerText}>{this.props.language.uploading}</p>  
+                      </>;
+        }
+
         if(this.state.isProcessing === true){
             content = <><Spinner />
-                        <p>{this.props.language.processing}</p>  
-                      </>
-
+                        <p className={classes.SpinnerText}>{this.props.language.processing}</p>  
+                      </>;
         }
 
         if(this.state.jobFinished === true){

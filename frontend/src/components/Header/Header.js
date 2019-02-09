@@ -7,10 +7,6 @@ const header = (props) => {
     return (
         <div className={classes.Header}>
             <Logo />
-            <div>
-                <button className="signIn">{props.language.signIn}</button>
-                <button className="signUp">{props.language.signUp}</button>
-            </div>
         </div>
     );
 };

@@ -45,9 +45,9 @@
     /*color: black;*/
 }
 
-.ProcessedText{
+.ProcessedText, .SpinnerText{
     font-size: 15px;
-    color:blue;
+    color:#C5C6C7;;
 }
 
 .SelectionArea{

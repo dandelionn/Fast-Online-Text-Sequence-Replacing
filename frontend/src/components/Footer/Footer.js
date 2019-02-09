@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './Footer.module.css';
 
-
 const footer = (props) => {
     return (
         <div className={classes.Footer}>
@@ -10,8 +9,8 @@ const footer = (props) => {
                 <p>{props.language.processedFilesSoFar}</p>
             </div>
         
-            <p> {props.language.termsAndConditions} </p>
-            <p> {props.language.copyright} </p>
+            <div onClick={props.clicked}  ><p>{props.language.termsAndConditions}</p></div>
+            
             <select onChange = {(e) => props.changeLanguage(e)}>
                 <option value="english">English</option>
                 <option value="romanian">Română</option>

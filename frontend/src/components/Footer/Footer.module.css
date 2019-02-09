@@ -19,6 +19,8 @@
 .Footer div{
     display: flex;
     flex-direction: row;
+    margin: 0;
+    padding: 0;
 }
 
 @media (max-width: 600px) {

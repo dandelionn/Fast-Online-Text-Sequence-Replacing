@@ -1,0 +1,12 @@
+.TermsAndConditions {
+    text-align: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: white;
+    align-items: center;
+    justify-items: center;
+    grid-template-rows:  min-content auto min-content;
+    margin:0;
+    padding: 0;
+  }
+  
