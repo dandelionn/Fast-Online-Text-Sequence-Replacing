@@ -40,6 +40,18 @@ app.post("/upload", function(req, res) {
     }
 });
 
+app.get('/download/example-files/:file(*)', (req, res) => {
+    var file = req.params.file;
+    var fileLocation = path.join('./example-files', file);
+    console.log(fileLocation);
+    res.download(fileLocation, file, (error) => {
+        if(error){
+            console.log(error);
+        }
+    });
+});
+
+
 app.get('/download/:file(*)', (req, res) => {
     var file = req.params.file;
     var fileLocation = path.join('./processed', file);

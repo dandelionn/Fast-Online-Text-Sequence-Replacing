@@ -18,7 +18,8 @@ const Languages = {
         text: 'text',
         dictionary: 'dictionary',
         termsAndConditionsPage: 'You can use this web app for free! Files larger that 100 MB are not allowed.',
-        clickAnywhere: 'Click anywhere to go back.'
+        clickAnywhere: 'Click anywhere to go back.',
+        downloadExampleFiles: 'Download Example Files'
     },
 
     romanian : {
@@ -39,7 +40,8 @@ const Languages = {
         text: 'text',
         dictionary: 'dicționar',
         termsAndConditionsPage: 'Poți folosi această aplicație web gratuit! Fișierele mai mari de 100 MB nu sunt permise.',
-        clickAnywhere: 'Apasă oriunde pentru a merge înapoi.'
+        clickAnywhere: 'Apasă oriunde pentru a merge înapoi.',
+        downloadExampleFiles: 'Descărcați fișiere exemplu'
     }
 }
 
