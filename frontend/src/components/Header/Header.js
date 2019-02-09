@@ -12,11 +12,14 @@ else if(window.location.href.startsWith("https://theusefulweb.tk/"))
 else baseURL = "http://localhost:3000/";
 
 class Header extends Component {
-    downloadFileHandler = (name) => {
+    downloadFileHandler = (name, oneMoreFile) => {
         axios.get(`${baseURL}download/example-files/${name}`)
                 .then( (response) => {
                     console.log(response);
                     fileDownload(response.data, name);
+                    if(oneMoreFile === true){
+                        this.downloadFileHandler('dictionary-example.txt', false);
+                    }
                 })
                 .catch(errors => {
                     console.log(errors);
@@ -24,8 +27,7 @@ class Header extends Component {
     }
 
     downloadExampleFilesHandler = () => {
-        this.downloadFileHandler('text-example.txt');
-        this.downloadFileHandler('dictionary-example.txt');
+        this.downloadFileHandler('text-example.txt', true);
     }
     
     render(){
