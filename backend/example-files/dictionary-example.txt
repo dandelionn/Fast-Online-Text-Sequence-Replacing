@@ -1,9 +1,22 @@
-# abgeleitet # # -------- #
-# zerstörtem # # ÄÈÄÈÄÈÄÈÄÈÄÈÄÈÄÈÄÈÄÈ #
-# erklären,# # öööööööööööööööö #
-# einzige # # uerda #
-# 2007,# #2019.#
-# weiß und harmlos.# # carpe diem.#
-# Mineral # # MINERAL #
-# „Natrium-Lithium-Bor-Silikat-Hydroxid“ # # SOME TEXT # 
-# SOME GUY # # Ramanujan #
+#Technische Daten# #Technical specifications#
+#Dauerausgangsleistung# #Continuous output power#
+# Kanal # # channel #
+#Klirrfaktor						# #Total harmonic distortion(THD)	#
+#bei Nennleistung# #at rated power#
+#halber Nennleistung oder# #half rated power or#
+# Watt # # watt #
+#Intermodulationsverzerrungen# #Intermodulation distortion	#
+#Frequenzgang	# #Frequency response#
+#Phonoeingang# #Phono input#
+#Hochpegeleing�nge # #Level inputs #
+#D�mpfungsfaktor # #Damping factor	#
+#Eingangsempfindlichkeit /# #Input sensitivity /		#
+#Impedanz# #Impedance#
+#Phono-Eingang# #Phono input#
+#Hochpegel-Eing�nge# #High level inputs#
+#�bersteuerungsgrenze# #Overload limit		#
+#Vorverst�rkerausgang / Impedanz# #Preamp / Impedance				#
+#Ger�uschspannungsabstand (IHF A)# #Signal to Noise Ratio (IHF A)	#
+#Leistungsaufnahme# #Input			#
+#Abmessungen (B x H x T)# #Dimensions (W x H x D)#
+#Nettogewicht# #Net weight	#

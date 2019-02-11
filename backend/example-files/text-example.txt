@@ -1,22 +1,34 @@
-Der Name ist abgeleitet von Krypton, dem Namen
- von Supermans zerst√∂rtem Heimatplaneten, von
- wo das Kryptonit seinen nat√ºrlichen Ursprung
- hat. Erstmals tauchte Kryptonit 1945 in der
- Superman-Radio-Show auf. Man hatte es urspr√ºnglich
- erfunden, um den kurzzeitigen Stimmenwechsel der
- Hauptperson zu erkl√§ren, da der urspr√ºngliche Sprecher
- krankheitsbedingt ausgefallen war. Den erstenComicauftritt
- hatte Kryptonit im Dezember 1949 in US-Superman #61. Damals
- war es (noch) rot, hatte allerdings exakt die Wirkung wie das
- gr√ºne Kryptonit, welches die h√§ufigste und neben 
- dem schwarzen die einzige Nach-Krisen-Variante ist.
-
-In die Schlagzeilen kam das Kryptonit im April 2007, 
-nachdem im Jahr zuvor ein neues Mineral gefunden wurde, 
-das bis auf das fehlende Fluor und das fiktive Kryptonium 
-ganz der chemischen Zusammensetzung des Meteorits ‚Äì 
- SOME TEXT ‚Äì entsprach, 
-wie es im Film  SOME GUY  Superman Returns auf dem Steinbeh√§lter 
-stand, in dem das Kryptonit eingeschlossen war. Im Gegensatz 
-zu diesem ist das neu entdeckte Mineral, das vom Forscherteam 
-den Namen Jadarit erhielt, allerdings wei√ü und harmlos.[1][2]
+Technische Daten
+--------------------------------------------------------------------
+Dauerausgangsleistung			| 60 Watt / Kanal (20 Hz - 20 kHz, 
+								|	< 0,03% THD, 8 Ohm)
+--------------------------------------------------------------------
+Klirrfaktor						| < 0,03% bei Nennleistung,
+(20 Hz - 20 kHz)				| halber Nennleistung oder 1 Watt
+--------------------------------------------------------------------
+Intermodulationsverzerrungen 	| < 0,03 bei Nennleistung,
+(60 Hz : 7 kHz, 4:1)			| halber Nennleistung oder 1 Watt
+--------------------------------------------------------------------
+Frequenzgang					| Phonoeingang (MM)
+								| 20 Hz - 15.000 Hz, +/- 0,2 dB
+								| Hochpegeleing‰nge
+								| 10 - 100.000 Hz, +1 dB, -3 dB
+--------------------------------------------------------------------
+D‰mpfungsfaktor 				| 150
+( 20 Hz - 20 kHz, 8 Ohm)		|
+--------------------------------------------------------------------
+Eingangsempfindlichkeit /		| Phono-Eingang (MM) 2,4 mV/ 47 kOhm
+Impedanz						| Hochpegel-Eing‰nge 160 mV/ 24 kOhm
+--------------------------------------------------------------------
+‹bersteuerungsgrenze			| Phono-Eingang (MM) 170 mV
+								| Hochpegel-Eing‰nge 5V
+--------------------------------------------------------------------
+Vorverst‰rkerausgang / Impedanz | 1 V/ 470 Ohm
+--------------------------------------------------------------------
+Ger‰uschspannungsabstand (IHF A)| > 95 dB
+--------------------------------------------------------------------
+Leistungsaufnahme				| 300 W
+--------------------------------------------------------------------
+Abmessungen (B x H x T)			| 432 x 92 x 355 mm
+--------------------------------------------------------------------
+Nettogewicht					| 7,8 kg
